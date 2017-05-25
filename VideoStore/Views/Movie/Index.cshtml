@@ -1,0 +1,28 @@
+﻿@model IEnumerable<VideoStore.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies Library";
+}
+
+<h2>Movie Library</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Genre</th>
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@movie.Name</td>
+                <td>@movie.Genre.Name</td>
+                <td class="text-right">@Html.ActionLink("Details", "Details", "Movie", new { id = movie.Id }, new { @class="btn btn-primary"})</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,23 @@
+﻿@model VideoStore.Models.Customer
+@{
+    ViewBag.Title = "Details: " + Model.Name;
+}
+
+<div class="container-fluid">
+    <div class="col-md-6">
+        <h2>@Model.Name</h2>
+        <ul>
+            <li>Membership Type: @Model.MembershipType.Name</li>
+            @{
+                if (Model.DateOfBirth.HasValue)
+                {
+                    <li>Date of birth: @Model.DateOfBirth.Value.ToShortDateString()</li>
+                }
+            }
+
+        </ul>
+    </div>
+    <div class="col-md-6">
+        @Html.ActionLink("Back", "Index", "Customer", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
